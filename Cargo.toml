@@ -1,8 +1,13 @@
 [package]
-name = "mcore"
+name = "miracl_core_ed25519"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+authors = ["David Yang <y.yang@supra.org>"]
+documentation = "https://github.com/miracl/core"
+repository = "https://github.com/Entropy-Foundation/miracl_core_ed25519"
+description = "Apache MIRACL (https://github.com/miracl/core) Rust implementation of Ed25519"
+license = "Apache-2.0"
+include = ["src", "Cargo.toml", "LICENSE"]
 
 [dependencies]
