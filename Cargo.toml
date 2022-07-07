@@ -11,3 +11,4 @@ license = "Apache-2.0"
 include = ["src", "Cargo.toml", "LICENSE"]
 
 [dependencies]
+miracl_core_bls12381 = "4.1.2"

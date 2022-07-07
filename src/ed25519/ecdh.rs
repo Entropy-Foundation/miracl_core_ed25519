@@ -25,9 +25,9 @@ use crate::ed25519::ecp;
 use crate::ed25519::ecp::ECP;
 use crate::ed25519::rom;
 
-use crate::aes;
-use crate::hmac;
-use crate::rand::RAND;
+use miracl_core_bls12381::aes;
+use miracl_core_bls12381::hmac;
+use miracl_core_bls12381::rand::RAND;
 
 pub const INVALID_PUBLIC_KEY: isize = -2;
 pub const ERROR: isize = -3;
@@ -70,7 +70,7 @@ pub fn in_range(s: &[u8]) -> bool {
  * If RNG is NULL then the private key is provided externally in s
  * otherwise it is generated randomly internally */
 #[allow(non_snake_case)]
-pub fn key_pair_generate(rng: Option<&mut RAND>, s: &mut [u8], w: &mut [u8]) -> isize {
+pub fn key_pair_generate(rng: Option<&mut impl RAND>, s: &mut [u8], w: &mut [u8]) -> isize {
     let res = 0;
     let mut sc: BIG;
     let G = ECP::generator();
@@ -172,7 +172,7 @@ pub fn ecpsvdp_dh(s: &[u8], wd: &[u8], z: &mut [u8], typ: isize) -> isize {
 #[allow(non_snake_case)]
 pub fn ecpsp_dsa(
     sha: usize,
-    rng: &mut RAND,
+    rng: &mut impl RAND,
     s: &[u8],
     f: &[u8],
     c: &mut [u8],
@@ -292,7 +292,7 @@ pub fn ecies_encrypt(
     sha: usize,
     p1: &[u8],
     p2: &[u8],
-    rng: &mut RAND,
+    rng: &mut impl RAND,
     w: &[u8],
     m: &[u8],
     v: &mut [u8],

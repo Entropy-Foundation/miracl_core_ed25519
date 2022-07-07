@@ -24,7 +24,7 @@ use crate::ed25519::big::BIG;
 use crate::ed25519::dbig::DBIG;
 use crate::ed25519::rom;
 
-use crate::rand::RAND;
+use miracl_core_bls12381::rand::RAND;
 
 #[derive(Copy, Clone)]
 pub struct FP {
@@ -106,7 +106,7 @@ impl FP {
         f
     }
 
-    pub fn new_rand(rng: &mut RAND) -> FP {
+    pub fn new_rand(rng: &mut impl RAND) -> FP {
         let m = BIG::new_ints(&rom::MODULUS);
         let w = BIG::randomnum(&m,rng);
         FP::new_big(&w)

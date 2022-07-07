@@ -24,16 +24,4 @@
 #![allow(clippy::manual_memcpy)]
 #![allow(clippy::new_without_default)]
 pub mod arch;
-pub mod aes;
-pub mod gcm;
-pub mod hmac;
-pub mod hash256;
-pub mod hash384;
-pub mod hash512;
-pub mod rand;
-pub mod share;
-pub mod sha3;
-pub mod nhs;
-pub mod dilithium;
-pub mod x509;
 pub mod ed25519;
